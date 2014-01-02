@@ -3,6 +3,11 @@ nlpshell
 
 NLP enabled supershell
 
+PreRequisites:
+-------------
+
+Install scrapy and nltk prior to running this program.
+
 Usage:
 ------
 
@@ -10,7 +15,7 @@ Usage:
 
 2) make setup.sh executable
 
-3) Run setup.sh.
+3) Run setup.sh
 
 4) That creates a folder named ManPageCrawler
 

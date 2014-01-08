@@ -15,5 +15,5 @@ do
 	python manpagefetcher.py $alphabet $base_dir/"manpages/"$alphabet"/"$alphabet"packages.json"
 	cd manpages_temp
 	mv * $base_dir/"manpages/"$alphabet"/"
-	echo "All Man Pages for "$alphabet" fetched..."
+	echo "All Man Pages for \""$alphabet"\" fetched..."
 done

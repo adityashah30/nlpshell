@@ -20,23 +20,21 @@ def __main__():
 		lslen = len(lslist)
 		if lslen == 0:
 			difflist = packagelist
-		packageptr = lsptr = 0
-		while packageptr < packagelen and lsptr < lslen:
-			# print lslist[lsptr]
-			# print packagelist[packageptr]["title"][0]+"("+packagelist[packageptr]["link"][0].split("/")[0]+")"
-			# print "----------------------------------"
-			if lslist[lsptr] == packagelist[packageptr]["title"][0]+"("+packagelist[packageptr]["link"][0].split("/")[0]+")":
-				lsptr += 1
-				packageptr += 1
-			elif lslist[lsptr] < packagelist[packageptr]["title"][0]+"("+packagelist[packageptr]["link"][0].split("/")[0]+")":
-				lsptr += 1
-			else:
-				difflist.append(packagelist[packageptr])
-				packageptr += 1
-		if(packagelen > lslen):
-			while packageptr < packagelen:
-				difflist.append(packagelist[packageptr])
-				packageptr += 1
+		else:
+			packageptr = lsptr = 0
+			while packageptr < packagelen and lsptr < lslen:
+				if lslist[lsptr] == packagelist[packageptr]["title"][0]+"("+packagelist[packageptr]["link"][0].split("/")[0]+")":
+					lsptr += 1
+					packageptr += 1
+				elif lslist[lsptr] < packagelist[packageptr]["title"][0]+"("+packagelist[packageptr]["link"][0].split("/")[0]+")":
+					lsptr += 1
+				else:
+					difflist.append(packagelist[packageptr])
+					packageptr += 1
+			if(packagelen > lslen):
+				while packageptr < packagelen:
+					difflist.append(packagelist[packageptr])
+					packageptr += 1
 
 	except ValueError:
 		difflist = lslist

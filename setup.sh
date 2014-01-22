@@ -6,6 +6,7 @@ cd ManPageCrawler
 cp $source_dir/getmanpages.sh .
 chmod a+x getmanpages.sh
 mkdir manpages
+mkdir packagelists
 mkdir Spider
 mkdir programs
 cd manpages
@@ -15,9 +16,14 @@ do
 	mkdir $alphabet
 done
 cd ..
+cd packagelists
+for alphabet in ${alphabets[@]};
+do
+	touch $alphabet"packages.json"
+done
+cd ..
 cd Spider
 cp -r $source_dir/Spider/* .
 cd ..
 cd programs
-mkdir manpages_temp
-cp $source_dir/programs/manpagefetcher.py .
+cp $source_dir/programs/* .

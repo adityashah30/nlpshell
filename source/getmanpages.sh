@@ -6,14 +6,14 @@ extension=".html"
 declare -a alphabets=("a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" "other")
 for alphabet in ${alphabets[@]};
 do
-	scrapy crawl spider -a start_url=$base_url$alphabet$extension -o $base_dir/"manpages/"$alphabet"/"$alphabet"packages.json" -t json	
+	rm $base_dir/"packagelists/"$alphabet"packages.json"
+	scrapy crawl spider -a start_url=$base_url$alphabet$extension -o $base_dir/"packagelists/"$alphabet"packages.json" -t json	
 done
 for alphabet in ${alphabets[@]};
 do
 	cd $base_dir
 	cd programs
-	python manpagefetcher.py $alphabet $base_dir/"manpages/"$alphabet"/"$alphabet"packages.json"
-	cd manpages_temp
-	mv * $base_dir/"manpages/"$alphabet"/"
-	echo "All Man Pages for \""$alphabet"\" fetched..."
+	python packagemanager.py $base_dir/"packagelists/"$alphabet"packages.json" $base_dir/"manpages/"$alphabet"/"
+	python manpagefetcher.py $alphabet diffFile.json $base_dir/"manpages"
+	rm diffFile.json
 done

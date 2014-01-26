@@ -16,6 +16,7 @@ def __main__():
 	try:
 		packagelist = json.load(packageFile)
 		packageFile.close()
+		packagelist = sorted(packagelist, key=lambda k: k["title"])
 		packagelen = len(packagelist)
 		lslen = len(lslist)
 		if lslen == 0:
@@ -23,6 +24,9 @@ def __main__():
 		else:
 			packageptr = lsptr = 0
 			while packageptr < packagelen and lsptr < lslen:
+				# print lslist[lsptr] 
+				# print packagelist[packageptr]["title"][0]+"("+packagelist[packageptr]["link"][0].split("/")[0]+")"
+				# print "--------------------------------------"
 				if lslist[lsptr] == packagelist[packageptr]["title"][0]+"("+packagelist[packageptr]["link"][0].split("/")[0]+")":
 					lsptr += 1
 					packageptr += 1

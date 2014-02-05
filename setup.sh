@@ -25,5 +25,6 @@ cd ..
 cd Spider
 cp -r $source_dir/Spider/* .
 cd ..
+mkdir clusterdata
 cd programs
 cp $source_dir/programs/* .

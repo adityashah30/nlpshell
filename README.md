@@ -23,4 +23,10 @@ Usage:
 
 6) run getmanpages.sh
 
-Done! That fetches all man pages....
+7) Done! That fetches all man pages
+
+8) In order to process the data, cd into programs directory
+
+9) First run doc_vector.py and then run clusterer2.py
+
+10) Processed result gets stored in clusterdata folder situated in the ManPageCrawler folder

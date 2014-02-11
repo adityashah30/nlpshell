@@ -20,8 +20,9 @@ def main():
     #initializing the vectorizer
     vectorizer = StemmedTfidfVectorizer(min_df = 1,stop_words = 'english', decode_error = 'ignore') 
 
-    fp.save('../clusterdata/X_train',vectorizer.fit_transform(posts))
-    xt = fp.load('../clusterdata/X_train')
-    num_sample, num_features = xt.shape
+    fp.save('../clusterdata/PL0N0',posts)
+    fp.save('../clusterdata/DVL0N0',vectorizer.fit_transform(posts))
+    fp.save('../clusterdata/VZL0N0',vectorizer)
+
 if __name__ == '__main__':
     main()
